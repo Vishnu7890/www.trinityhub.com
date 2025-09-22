@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinity LearnHub - Interactive Early Childhood Learning Platform</title>
+    <meta name="description" content="Fun and engaging learning platform for children aged 3-6. Interactive games, educational videos, and activities to support early childhood development.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "8K--E9MIJPEkZrMWE",
+      });
+   })();
+</script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <!-- Logo and Brand -->
+                <div class="nav-brand">
+                    <a href="#/" class="brand-link" data-testid="link-home">
+                        <img src="attached_assets/generated_images/Educational_owl_mascot_character_18c6072e.png" alt="Trinity LearnHub Owl" class="brand-logo">
+                        <span class="brand-text">Trinity LearnHub</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links desktop-nav">
+                    <a href="#/" class="nav-link" data-testid="link-home">
+                        <span class="nav-icon">🏠</span>
+                        Home
+                    </a>
+                    <a href="#/about" class="nav-link" data-testid="link-about">
+                        <span class="nav-icon">ℹ️</span>
+                        About
+                    </a>
+                    <a href="#/lectures" class="nav-link" data-testid="link-lectures">
+                        <span class="nav-icon">📚</span>
+                        Lectures
+                    </a>
+                    <a href="#/games" class="nav-link" data-testid="link-games">
+                        <span class="nav-icon">🎮</span>
+                        Games
+                    </a>
+                    <a href="#/dashboard" class="nav-link" data-testid="link-dashboard">
+                        <span class="nav-icon">📊</span>
+                        Dashboard
+                    </a>
+                    <a href="#/purchases" class="nav-link" data-testid="link-store">
+                        <span class="nav-icon">🛒</span>
+                        Store
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </a>
+                </div>
+
+                <!-- Auth Section -->
+                <div class="nav-auth desktop-nav">
+                    <div class="auth-logged-out">
+                        <a href="#/login" class="btn btn-ghost" data-testid="link-login">Login</a>
+                        <a href="#/signup" class="btn btn-primary" data-testid="link-signup">Sign Up</a>
+                    </div>
+                    <div class="auth-logged-in" style="display: none;">
+                        <div class="user-info">
+                            <span class="user-icon">👤</span>
+                            <span class="user-name"></span>
+                        </div>
+                        <button class="btn btn-outline" id="logout-btn" data-testid="button-logout">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" id="mobile-menu-btn" data-testid="button-mobile-menu">
+                    <span class="hamburger-icon">☰</span>
+                    <span class="close-icon" style="display: none;">✕</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-content">
+                <a href="#/" class="mobile-nav-link" data-testid="mobile-link-home">
+                    <span class="nav-icon">🏠</span>
+                    Home
+                </a>
+                <a href="#/about" class="mobile-nav-link" data-testid="mobile-link-about">
+                    <span class="nav-icon">ℹ️</span>
+                    About
+                </a>
+                <a href="#/lectures" class="mobile-nav-link" data-testid="mobile-link-lectures">
+                    <span class="nav-icon">📚</span>
+                    Lectures
+                </a>
+                <a href="#/games" class="mobile-nav-link" data-testid="mobile-link-games">
+                    <span class="nav-icon">🎮</span>
+                    Games
+                </a>
+                <a href="#/dashboard" class="mobile-nav-link" data-testid="mobile-link-dashboard">
+                    <span class="nav-icon">📊</span>
+                    Dashboard
+                </a>
+                <a href="#/purchases" class="mobile-nav-link" data-testid="mobile-link-store">
+                    <span class="nav-icon">🛒</span>
+                    Store
+                    <span class="cart-badge mobile-cart-badge" id="mobile-cart-badge">0</span>
+                </a>
+                
+                <div class="mobile-auth">
+                    <div class="mobile-auth-logged-out">
+                        <a href="#/login" class="btn btn-ghost btn-full" data-testid="mobile-link-login">Login</a>
+                        <a href="#/signup" class="btn btn-primary btn-full" data-testid="mobile-link-signup">Sign Up</a>
+                    </div>
+                    <div class="mobile-auth-logged-in" style="display: none;">
+                        <div class="mobile-user-info">
+                            <span class="user-icon">👤</span>
+                            <span class="mobile-user-name"></span>
+                        </div>
+                        <button class="btn btn-outline btn-full" id="mobile-logout-btn" data-testid="mobile-button-logout">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Page -->
+        <section id="page-home" class="page">
+            <div class="hero-section">
+                <div class="hero-container">
+                    <div class="hero-grid">
+                        <!-- Content -->
+                        <div class="hero-content">
+                            <div class="hero-welcome">
+                                <img src="attached_assets/generated_images/Educational_owl_mascot_character_18c6072e.png" alt="Wise Owl" class="welcome-owl">
+                                <span class="welcome-text">Welcome to Trinity LearnHub!</span>
+                            </div>
+                            
+                            <div class="hero-text">
+                                <h1 class="hero-title">
+                                    Learn, Play, and 
+                                    <span class="hero-title-highlight">Grow Together!</span>
+                                </h1>
+                                
+                                <p class="hero-description">
+                                    Join thousands of children on an exciting educational journey filled with 
+                                    interactive games, engaging stories, and fun activities designed for ages 3-6.
+                                </p>
+                            </div>
+
+                            <div class="hero-buttons">
+                                <button class="btn btn-primary btn-lg" id="get-started-btn" data-testid="button-get-started">
+                                    <span class="btn-icon">▶</span>
+                                    Start Learning Now!
+                                </button>
+                                <button class="btn btn-outline btn-lg" data-testid="button-watch-demo">
+                                    Watch Demo
+                                </button>
+                            </div>
+
+                            <!-- Stats -->
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <div class="stat-number">10K+</div>
+                                    <div class="stat-label">Happy Kids</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">50+</div>
+                                    <div class="stat-label">Fun Activities</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">98%</div>
+                                    <div class="stat-label">Parent Approval</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Image -->
+                        <div class="hero-image">
+                            <img src="attached_assets/generated_images/Children_learning_together_hero_image_a989f80c.png" alt="Children learning together" class="hero-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Cards -->
+                <div class="activities-section">
+                    <div class="activities-container">
+                        <div class="activities-header">
+                            <h2 class="activities-title">What Will Your Child Learn Today?</h2>
+                            <p class="activities-description">Choose from our collection of educational activities</p>
+                        </div>
+
+                        <div class="activities-grid">
+                            <div class="activity-card" data-game="alphabet" data-testid="card-activity-alphabet">
+                                <div class="activity-icon alphabet-icon">⭐</div>
+                                <h3 class="activity-title">Alphabet Adventure</h3>
+                                <p class="activity-description">Learn letters through fun drag-and-drop games</p>
+                                <button class="btn btn-ghost btn-sm">Play Now</button>
+                            </div>
+                            <div class="activity-card" data-game="colors" data-testid="card-activity-colors">
+                                <div class="activity-icon colors-icon">🎨</div>
+                                <h3 class="activity-title">Color Splash</h3>
+                                <p class="activity-description">Paint shapes and learn about colors</p>
+                                <button class="btn btn-ghost btn-sm">Play Now</button>
+                            </div>
+                            <div class="activity-card" data-game="stories" data-testid="card-activity-stories">
+                                <div class="activity-icon stories-icon">❤️</div>
+                                <h3 class="activity-title">Story Time</h3>
+                                <p class="activity-description">Listen to exciting stories read aloud</p>
+                                <button class="btn btn-ghost btn-sm">Play Now</button>
+                            </div>
+                            <div class="activity-card" data-game="music" data-testid="card-activity-music">
+                                <div class="activity-icon music-icon">🎵</div>
+                                <h3 class="activity-title">Music Room</h3>
+                                <p class="activity-description">Create melodies on our magical piano</p>
+                                <button class="btn btn-ghost btn-sm">Play Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="page-about" class="page" style="display: none;">
+            <div class="about-container">
+                <!-- Hero Section -->
+                <div class="about-hero">
+                    <img src="attached_assets/generated_images/Educational_owl_mascot_character_18c6072e.png" alt="Trinity LearnHub Owl Mascot" class="about-owl">
+                    <h1 class="about-title">About Trinity LearnHub</h1>
+                    <p class="about-description">
+                        Trinity LearnHub is an interactive early childhood learning platform designed to make education 
+                        fun, engaging, and effective for children ages 3-6. We believe every child deserves 
+                        access to quality educational experiences that foster growth and development.
+                    </p>
+                    <button class="btn btn-primary btn-lg" id="about-get-started" data-testid="button-get-started-about">
+                        Start Your Child's Journey
+                    </button>
+                </div>
+
+                <!-- Mission Statement -->
+                <div class="mission-card">
+                    <h2 class="mission-title">Our Mission</h2>
+                    <p class="mission-text">
+                        To provide children with engaging, educational experiences that support their natural 
+                        curiosity and love of learning while giving parents the tools to track and celebrate 
+                        their child's progress.
+                    </p>
+                </div>
+
+                <!-- Learning Domains -->
+                <div class="domains-section">
+                    <div class="domains-header">
+                        <h2 class="domains-title">Four Pillars of Early Learning</h2>
+                        <p class="domains-description">
+                            Our platform focuses on comprehensive development across all key areas of early childhood learning.
+                        </p>
+                    </div>
+
+                    <div class="domains-content">
+                        <div class="domains-list">
+                            <div class="domain-card">
+                                <div class="domain-icon cognitive-icon">🧠</div>
+                                <div class="domain-info">
+                                    <h3 class="domain-title">Cognitive Development</h3>
+                                    <p class="domain-description">
+                                        Problem-solving, memory, and critical thinking skills through interactive puzzles and games.
+                                    </p>
+                                    <div class="domain-features">
+                                        <span class="feature-tag">Pattern recognition</span>
+                                        <span class="feature-tag">Memory games</span>
+                                        <span class="feature-tag">Logic puzzles</span>
+                                        <span class="feature-tag">Sequence learning</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="domain-card">
+                                <div class="domain-icon language-icon">💬</div>
+                                <div class="domain-info">
+                                    <h3 class="domain-title">Language Development</h3>
+                                    <p class="domain-description">
+                                        Building vocabulary, reading readiness, and communication skills through stories and activities.
+                                    </p>
+                                    <div class="domain-features">
+                                        <span class="feature-tag">Alphabet recognition</span>
+                                        <span class="feature-tag">Phonics practice</span>
+                                        <span class="feature-tag">Story comprehension</span>
+                                        <span class="feature-tag">Vocabulary building</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="domain-card">
+                                <div class="domain-icon social-icon">❤️</div>
+                                <div class="domain-info">
+                                    <h3 class="domain-title">Social-Emotional Growth</h3>
+                                    <p class="domain-description">
+                                        Understanding emotions, empathy, and social skills through interactive stories and scenarios.
+                                    </p>
+                                    <div class="domain-features">
+                                        <span class="feature-tag">Emotion recognition</span>
+                                        <span class="feature-tag">Empathy building</span>
+                                        <span class="feature-tag">Social scenarios</span>
+                                        <span class="feature-tag">Self-expression</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="domain-card">
+                                <div class="domain-icon motor-icon">⚡</div>
+                                <div class="domain-info">
+                                    <h3 class="domain-title">Motor Skills</h3>
+                                    <p class="domain-description">
+                                        Fine and gross motor development through drag-and-drop games and interactive activities.
+                                    </p>
+                                    <div class="domain-features">
+                                        <span class="feature-tag">Hand-eye coordination</span>
+                                        <span class="feature-tag">Fine motor control</span>
+                                        <span class="feature-tag">Spatial awareness</span>
+                                        <span class="feature-tag">Movement patterns</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="domains-image">
+                            <img src="attached_assets/generated_images/Learning_domains_illustration_infographic_a41493be.png" alt="Learning Domains Illustration">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="features-section">
+                    <div class="features-header">
+                        <h2 class="features-title">Why Choose Trinity LearnHub?</h2>
+                        <p class="features-description">We've designed our platform with both children and parents in mind.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">⭐</div>
+                            <h3 class="feature-title">Age-Appropriate Content</h3>
+                            <p class="feature-description">All activities are designed specifically for children ages 3-6 years old.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👥</div>
+                            <h3 class="feature-title">Safe Learning Environment</h3>
+                            <p class="feature-description">Child-friendly interface with no external links or inappropriate content.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3 class="feature-title">Progress Tracking</h3>
+                            <p class="feature-description">Parents can monitor their child's learning progress and achievements.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏆</div>
+                            <h3 class="feature-title">Educational Excellence</h3>
+                            <p class="feature-description">Content developed with early childhood education experts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="stats-card">
+                    <div class="stats-header">
+                        <h2 class="stats-title">Trusted by Families Worldwide</h2>
+                        <p class="stats-description">Join thousands of families who have chosen Trinity LearnHub for their children's education.</p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-number">10,000+</div>
+                            <div class="stat-label">Happy Children</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5,000+</div>
+                            <div class="stat-label">Families</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Learning Activities</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Parent Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="about-cta">
+                    <h2 class="cta-title">Developers</h2>
+                    <ul class="developer-list">
+    <li>Vishnu Badgujar</li>
+    <li>Shreyas Wankhede</li>
+    <li>Om Kaware</li>
+    <li>Rutuja Mathpati</li>
+  </ul>
+                    <p class="cta-description">Give your child the gift of learning through play. Start their educational journey today!</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary btn-lg" id="about-start-learning" data-testid="button-start-learning">
+                            Start Learning Now
+                        </button>
+                        <button class="btn btn-outline btn-lg">View Sample Activities</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Page -->
+        <section id="page-login" class="page auth-page" style="display: none;">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2 class="auth-title">Welcome Back!</h2>
+                        <p class="auth-description">Sign in to continue your child's learning journey</p>
+                    </div>
+                    
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="login-email">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-icon">📧</span>
+                                <input type="email" id="login-email" name="email" placeholder="Enter your email" required data-testid="input-email">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <div class="input-group">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="login-password" name="password" placeholder="Enter your password" required data-testid="input-password">
+                                <button type="button" class="password-toggle" id="login-password-toggle" data-testid="button-toggle-password">👁️</button>
+                            </div>
+                        </div>
+
+                        <div class="auth-error" id="login-error" style="display: none;"></div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full" id="login-submit" data-testid="button-login">
+                            Sign In
+                        </button>
+                    </form>
+                    
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="#/signup" data-testid="link-signup">Sign up here</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sign Up Page -->
+        <section id="page-signup" class="page auth-page" style="display: none;">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2 class="auth-title">Join Trinity LearnHub</h2>
+                        <p class="auth-description">Create an account to start your child's educational adventure</p>
+                    </div>
+                    
+                    <form id="signup-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="signup-name">Parent/Guardian Name</label>
+                            <div class="input-group">
+                                <span class="input-icon">👤</span>
+                                <input type="text" id="signup-name" name="name" placeholder="Enter your full name" required data-testid="input-name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signup-email">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-icon">📧</span>
+                                <input type="email" id="signup-email" name="email" placeholder="Enter your email" required data-testid="input-email">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <div class="input-group">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="signup-password" name="password" placeholder="Enter your password" required data-testid="input-password">
+                                <button type="button" class="password-toggle" id="signup-password-toggle" data-testid="button-toggle-password">👁️</button>
+                            </div>
+                        </div>
+
+                        <div class="auth-error" id="signup-error" style="display: none;"></div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full" id="signup-submit" data-testid="button-signup">
+                            Create Account
+                        </button>
+                    </form>
+                    
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="#/login" data-testid="link-login">Sign in here</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Page -->
+        <section id="page-games" class="page" style="display: none;">
+            <div class="games-container">
+                <div class="games-header">
+                    <h1 class="games-title">Learning Games</h1>
+                    <p class="games-description">Choose a game and start learning!</p>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="games-progress"></div>
+                    </div>
+                    <p class="progress-text"><span id="completed-games">0</span> of 4 games completed</p>
+                </div>
+
+                <div class="game-tabs">
+                    <button class="game-tab active" data-game="alphabet" data-testid="button-game-alphabet">
+                        Alphabet Adventure
+                        <span class="completion-check" style="display: none;">✅</span>
+                    </button>
+                    <button class="game-tab" data-game="color-splash" data-testid="button-game-color-splash">
+                        Color Splash
+                        <span class="completion-check" style="display: none;">✅</span>
+                    </button>
+                    <button class="game-tab" data-game="storytime" data-testid="button-game-storytime">
+                        Story Time
+                        <span class="completion-check" style="display: none;">✅</span>
+                    </button>
+                    <button class="game-tab" data-game="music-room" data-testid="button-game-music-room">
+                        Music Room
+                        <span class="completion-check" style="display: none;">✅</span>
+                    </button>
+                </div>
+
+                <!-- Alphabet Game -->
+                <div class="game-content" id="game-alphabet">
+                    <div class="game-card">
+                        <div class="game-card-header">
+                            <h3 class="game-card-title">
+                                <span class="game-icon">⭐</span>
+                                Alphabet Adventure
+                            </h3>
+                            <p class="game-card-description">Drag the letters in alphabetical order!</p>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="drop-zone" id="alphabet-drop-zone" data-testid="drop-zone-alphabet">
+                                <p class="drop-zone-text">Drop letters here in order</p>
+                                <div class="dropped-letters" id="dropped-letters"></div>
+                            </div>
+                            
+                            <div class="draggable-letters" id="draggable-letters">
+                                <button class="letter-btn" data-letter="A" draggable="true" data-testid="letter-A">A</button>
+                                <button class="letter-btn" data-letter="B" draggable="true" data-testid="letter-B">B</button>
+                                <button class="letter-btn" data-letter="C" draggable="true" data-testid="letter-C">C</button>
+                                <button class="letter-btn" data-letter="D" draggable="true" data-testid="letter-D">D</button>
+                                <button class="letter-btn" data-letter="E" draggable="true" data-testid="letter-E">E</button>
+                            </div>
+
+                            <div class="game-completion" id="alphabet-completion" style="display: none;">
+                                <div class="completion-icon">✅</div>
+                                <p class="completion-text">Great job! 🎉</p>
+                            </div>
+
+                            <button class="btn btn-outline" id="alphabet-reset" data-testid="button-reset-alphabet">
+                                <span class="btn-icon">🔄</span>
+                                Try Again
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Splash Game -->
+                <div class="game-content" id="game-color-splash" style="display: none;">
+                    <div class="game-card">
+                        <div class="game-card-header">
+                            <h3 class="game-card-title">
+                                <span class="game-icon">🎨</span>
+                                Color Splash
+                            </h3>
+                            <p class="game-card-description">Pick a color and tap shapes to paint them!</p>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="color-section">
+                                <p class="color-label">Choose a color:</p>
+                                <div class="color-palette">
+                                    <button class="color-btn selected" data-color="red" data-testid="color-red">
+                                        <div class="color-swatch red"></div>
+                                        Red
+                                    </button>
+                                    <button class="color-btn" data-color="blue" data-testid="color-blue">
+                                        <div class="color-swatch blue"></div>
+                                        Blue
+                                    </button>
+                                    <button class="color-btn" data-color="green" data-testid="color-green">
+                                        <div class="color-swatch green"></div>
+                                        Green
+                                    </button>
+                                    <button class="color-btn" data-color="yellow" data-testid="color-yellow">
+                                        <div class="color-swatch yellow"></div>
+                                        Yellow
+                                    </button>
+                                    <button class="color-btn" data-color="purple" data-testid="color-purple">
+                                        <div class="color-swatch purple"></div>
+                                        Purple
+                                    </button>
+                                    <button class="color-btn" data-color="orange" data-testid="color-orange">
+                                        <div class="color-swatch orange"></div>
+                                        Orange
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="shapes-grid">
+                                <button class="shape-btn" data-shape="circle" data-testid="shape-circle">Circle</button>
+                                <button class="shape-btn" data-shape="square" data-testid="shape-square">Square</button>
+                                <button class="shape-btn" data-shape="triangle" data-testid="shape-triangle">Triangle</button>
+                                <button class="shape-btn" data-shape="star" data-testid="shape-star">Star</button>
+                            </div>
+
+                            <button class="btn btn-outline" id="colors-reset" data-testid="button-reset-colors">
+                                <span class="btn-icon">🔄</span>
+                                Clear All
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Storytime Game -->
+                <div class="game-content" id="game-storytime" style="display: none;">
+                    <div class="game-card">
+                        <div class="game-card-header">
+                            <h3 class="game-card-title">
+                                <span class="game-icon">❤️</span>
+                                Story Time
+                            </h3>
+                            <p class="game-card-description">Listen to magical stories!</p>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="story-content">
+                                <h3 class="story-title" id="story-title">The Little Owl's Adventure</h3>
+                                <div class="story-text">
+                                    <p id="story-content">Once upon a time, a little owl named Hoot loved to learn new things every day. He would fly around the forest, discovering letters, numbers, and colors!</p>
+                                </div>
+                            </div>
+
+                            <div class="story-controls">
+                                <button class="btn btn-outline" id="story-prev" data-testid="button-prev-story">Previous</button>
+                                <button class="btn btn-primary btn-lg" id="story-read" data-testid="button-read-aloud">
+                                    <span class="btn-icon">🔊</span>
+                                    <span class="read-text">Read Aloud</span>
+                                </button>
+                                <button class="btn btn-outline" id="story-next" data-testid="button-next-story">Next</button>
+                            </div>
+
+                            <div class="story-progress">
+                                <p>Story <span id="story-current">1</span> of <span id="story-total">3</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Music Room Game -->
+                <div class="game-content" id="game-music-room" style="display: none;">
+                    <div class="game-card">
+                        <div class="game-card-header">
+                            <h3 class="game-card-title">
+                                <span class="game-icon">🎵</span>
+                                Music Room
+                            </h3>
+                            <p class="game-card-description">Create beautiful melodies on our magical piano!</p>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="piano-keyboard">
+                                <button class="piano-key white-key" data-note="C" data-frequency="261.63" data-testid="note-C">C</button>
+                                <button class="piano-key white-key" data-note="D" data-frequency="293.66" data-testid="note-D">D</button>
+                                <button class="piano-key white-key" data-note="E" data-frequency="329.63" data-testid="note-E">E</button>
+                                <button class="piano-key white-key" data-note="F" data-frequency="349.23" data-testid="note-F">F</button>
+                                <button class="piano-key white-key" data-note="G" data-frequency="392.00" data-testid="note-G">G</button>
+                                <button class="piano-key white-key" data-note="A" data-frequency="440.00" data-testid="note-A">A</button>
+                                <button class="piano-key white-key" data-note="B" data-frequency="493.88" data-testid="note-B">B</button>
+                            </div>
+                            
+                            <div class="music-help">
+                                <p>Tap the keys to create your own music! 🎵</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lectures Page -->
+        <section id="page-lectures" class="page" style="display: none;">
+            <div class="lectures-container">
+                <div class="lectures-header">
+                    <h1 class="lectures-title">Educational Lectures</h1>
+                    <p class="lectures-description">
+                        Discover a world of learning with our curated collection of educational videos 
+                        and interactive lectures designed for young minds.
+                    </p>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="category-filter">
+                    <button class="category-btn active" data-category="all" data-testid="button-category-all">
+                        <span class="category-icon">📚</span>
+                        All Lectures
+                    </button>
+                    <button class="category-btn" data-category="alphabet" data-testid="button-category-alphabet">
+                        <span class="category-icon">⭐</span>
+                        Alphabet
+                    </button>
+                    <button class="category-btn" data-category="numbers" data-testid="button-category-numbers">
+                        <span class="category-icon">#️⃣</span>
+                        Numbers
+                    </button>
+                    <button class="category-btn" data-category="colors" data-testid="button-category-colors">
+                        <span class="category-icon">🎨</span>
+                        Colors
+                    </button>
+                    <button class="category-btn" data-category="music" data-testid="button-category-music">
+                        <span class="category-icon">🎵</span>
+                        Music
+                    </button>
+                    <button class="category-btn" data-category="stories" data-testid="button-category-stories">
+                        <span class="category-icon">📚</span>
+                        Stories
+                    </button>
+                    <button class="category-btn" data-category="shapes" data-testid="button-category-shapes">
+                        <span class="category-icon">⭐</span>
+                        Shapes
+                    </button>
+                    <button class="category-btn active" data-category="yoga" data-testid="button-category-yoga" 
+        onclick="window.open('https://www.youtube.com/watch?v=YOUR_YOGA_VIDEOhttps://youtu.be/QSujIwU4eXY?si=MO2YNcFWVNqA_I0E',)">
+    <span class="category-icon">🧘</span>
+    Yoga Lectures
+</button>
+
+                </div>
+
+                <!-- Lectures Grid -->
+                <div class="lectures-grid" id="lectures-grid">
+                    <!-- Lectures will be populated by JavaScript -->
+                </div>
+
+                <!-- No lectures message -->
+                <div class="no-lectures" id="no-lectures" style="display: none;">
+                    <div class="no-lectures-icon">📚</div>
+                    <h3 class="no-lectures-title">No lectures found</h3>
+                    <p class="no-lectures-description">Try selecting a different category to see more content.</p>
+                </div>
+            </div>
+
+            <!-- Lecture Player Modal -->
+            <div class="modal" id="lecture-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="modal-lecture-title">Lecture Title</h2>
+                        <button class="modal-close" id="modal-close">✕</button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="modal-description" id="modal-lecture-description">Lecture description</p>
+                        
+                        <!-- Video/Content Area -->
+                        <div class="lecture-player">
+                            <img id="modal-lecture-image" src="" alt="" class="lecture-image">
+                            
+                            <div class="player-controls">
+    <button class="btn btn-primary btn-lg" id="modal-play-btn" data-testid="button-play-lecture"
+            onclick="window.open('https://youtu.be/RiYzD1h-YVQ?si=jgs-cASGX9JaSCCJhttps://www.youtube.com/watch?v=YOUR_ABCD_VIDEO_ID', '_blank')">
+        <span class="btn-icon">▶</span>
+        <span class="play-text">Start Lecture</span>
+    </button>
+</div>
+
+                                
+                                <div class="lecture-content" id="modal-lecture-content" style="display: none;">
+                                    <p id="modal-content-text"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lecture-info">
+                            <span>Duration: <span id="modal-duration"></span></span>
+                            <span>Age Group: <span id="modal-age-group"></span></span>
+                            <span class="lecture-category" id="modal-category"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Page -->
+        <section id="page-dashboard" class="page" style="display: none;">
+            <div class="dashboard-container">
+                <!-- Header -->
+                <div class="dashboard-header">
+                    <div class="dashboard-title-section">
+                        <h1 class="dashboard-title">Learning Dashboard</h1>
+                        <p class="dashboard-subtitle">Welcome back, <span id="dashboard-user-name">Parent User</span>! Here's <span id="dashboard-child-name">Your Child</span>'s learning progress.</p>
+                    </div>
+                    
+                    <div class="dashboard-actions">
+                        <button class="btn btn-outline" id="reset-progress-btn" data-testid="button-reset-progress">
+                            <span class="btn-icon">🔄</span>
+                            Reset Progress
+                        </button>
+                        <button class="btn btn-outline" id="dashboard-logout-btn" data-testid="button-logout-dashboard">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reset Progress Alert -->
+                <div class="alert alert-danger" id="reset-alert" style="display: none;">
+                    <p>Are you sure you want to reset all progress? This action cannot be undone.</p>
+                    <div class="alert-actions">
+                        <button class="btn btn-danger btn-sm" id="confirm-reset">Reset</button>
+                        <button class="btn btn-outline btn-sm" id="cancel-reset">Cancel</button>
+                    </div>
+                </div>
+
+                <!-- Overview Cards -->
+                <div class="overview-cards">
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <p class="card-label">Overall Progress</p>
+                            <h3 class="card-value" id="overall-progress">0%</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="overall-progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <p class="card-label">Activities Completed</p>
+                            <h3 class="card-value" id="activities-completed">0 / 4</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-info">
+                                <span class="info-icon">🏆</span>
+                                <span class="info-text">Great job!</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <p class="card-label">Lectures Watched</p>
+                            <h3 class="card-value" id="lectures-watched">0</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-info">
+                                <span class="info-icon">▶</span>
+                                <span class="info-text">Keep learning!</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <p class="card-label">Learning Level</p>
+                            <h3 class="card-value" id="learning-level">Getting Started</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="level-badge" id="level-badge"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Progress -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">📈</span>
+                            Activity Progress
+                        </h3>
+                        <p class="card-description">Track progress across all learning activities</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="activities-progress" id="activities-progress">
+                            <!-- Activity progress items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">🏆</span>
+                            Achievements
+                        </h3>
+                        <p class="card-description">Celebrate learning milestones!</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="achievements-grid" id="achievements-grid">
+                            <!-- Achievements will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">📅</span>
+                            Recent Activity
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="recent-activities">
+                            <div class="activity-item">
+                                <span class="activity-icon">⭐</span>
+                                <div class="activity-info">
+                                    <p class="activity-title">Completed Alphabet Adventure Level 3</p>
+                                    <p class="activity-time">2 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">📚</span>
+                                <div class="activity-info">
+                                    <p class="activity-title">Watched "The Three Little Pigs" story</p>
+                                    <p class="activity-time">Yesterday</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">🎨</span>
+                                <div class="activity-info">
+                                    <p class="activity-title">Painted 5 shapes in Color Splash</p>
+                                    <p class="activity-time">2 days ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchases Page -->
+        <section id="page-purchases" class="page" style="display: none;">
+            <div class="store-container">
+                <!-- Header -->
+                <div class="store-header">
+                    <div class="store-title-section">
+                        <h1 class="store-title">Learning Store</h1>
+                        <p class="store-description">Educational toys, books, and games to support your child's learning journey</p>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="view-cart-btn" data-testid="button-view-cart">
+                        <span class="btn-icon">🛒</span>
+                        View Cart
+                        <span class="cart-badge" id="store-cart-badge">0</span>
+                    </button>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="store-category-filter">
+                    <button class="store-category-btn active" data-category="all" data-testid="button-category-all">
+                        <span class="category-icon">🛒</span>
+                        All Products
+                    </button>
+                    <button class="store-category-btn" data-category="educational" data-testid="button-category-educational">
+                        <span class="category-icon">⭐</span>
+                        Educational
+                    </button>
+                    <button class="store-category-btn" data-category="books" data-testid="button-category-books">
+                        <span class="category-icon">📚</span>
+                        Books
+                    </button>
+                    <button class="store-category-btn" data-category="puzzles" data-testid="button-category-puzzles">
+                        <span class="category-icon">🧩</span>
+                        Puzzles
+                    </button>
+                    <button class="store-category-btn" data-category="games" data-testid="button-category-games">
+                        <span class="category-icon">🎲</span>
+                        Games
+                    </button>
+                    <button class="store-category-btn" data-category="music" data-testid="button-category-music">
+                        <span class="category-icon">🎵</span>
+                        Music
+                    </button>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Products will be populated by JavaScript -->
+                </div>
+
+                <!-- No products message -->
+                <div class="no-products" id="no-products" style="display: none;">
+                    <div class="no-products-icon">🛒</div>
+                    <h3 class="no-products-title">No products found</h3>
+                    <p class="no-products-description">Try selecting a different category to see more products.</p>
+                </div>
+            </div>
+
+            <!-- Cart Modal -->
+            <div class="modal" id="cart-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">
+                            <span class="modal-icon">🛒</span>
+                            Shopping Cart (<span id="cart-item-count">0</span> items)
+                        </h2>
+                        <button class="modal-close" id="cart-modal-close">✕</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="cart-content" id="cart-content">
+                            <!-- Cart items will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="cart-empty" id="cart-empty">
+                            <div class="cart-empty-icon">🛒</div>
+                            <p>Your cart is empty</p>
+                        </div>
+                        
+                        <div class="cart-footer" id="cart-footer" style="display: none;">
+                            <div class="cart-total">
+                                <span class="total-label">Total:</span>
+                                <span class="total-amount" id="cart-total">$0.00</span>
+                            </div>
+                            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+        emailjs.init("8K--E9MIJPEkZrMWE"); 
+    })();
+</script>                                                                                                                                                         <button class="btn btn-primary btn-lg btn-full" id="checkout-btn" data-testid="button-checkout">
+    Proceed to Checkout
+</button>
+
+<script>
+document.getElementById("checkout-btn").addEventListener("click", function() {
+    emailjs.send("service_08lawuj", "template_8183pua", {
+        total: document.getElementById("cart-total").innerText,
+        email_to: "customeremail@gmail.com" 
+    })
+    .then(function(response) {
+        alert("✅ Purchase bill sent successfully!");
+    }, function(error) {
+        alert("❌ Failed to send bill: " + JSON.stringify(error));
+    });
+});
+</script>
+ 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "8K--E9MIJPEkZrMWE",
+      });
+   })();
+</script>
+</body>
+</html>
